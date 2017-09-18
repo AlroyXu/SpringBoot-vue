@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "echarts": "^3.7.1",
+    "iview": "^2.3.2",
+    "vue-router": "^2.7.0",
     "webpack": "^2.4.1"
   },
   "devDependencies": {

@@ -4,7 +4,9 @@
         <p class="meta">This demo project for express new develop practice demo.</p>
         <ul class="header-operations">
         </ul>
+        <Tag style="float:right" closable color="green">iview，显示</Tag>
     </header>
+    
 </template>
 
 <script>

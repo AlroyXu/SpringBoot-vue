@@ -6,9 +6,8 @@
                 <db-sidebar></db-sidebar>
             </el-col>
             <el-col :span="20" class="content">
-                <db-filterinput></db-filterinput>
-                <db-table></db-table>
-
+                
+                <router-view></router-view>
             </el-col>
 
 
@@ -33,6 +32,7 @@
     import DbTable from './components/DbTable.vue'
     import DbFooter from './components/DbFooter.vue'
     import ElRow from "element-ui/packages/row/src/row";
+    import Home from './components/page/Home.vue'
 
     export default {
         name: 'app',
@@ -41,7 +41,8 @@
             DbSidebar,
             DbFilterinput,
             DbTable,
-            DbFooter
+            DbFooter,
+            Home
         },
     }
 

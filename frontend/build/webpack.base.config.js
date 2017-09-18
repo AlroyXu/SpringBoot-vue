@@ -15,11 +15,13 @@ module.exports = {
         filename: 'js/[name].js'
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            use: "babel-loader",
-            include: [resolve('../src')]
-        },
+        rules: [
+            {
+                test: /\.js$/,
+                use: "babel-loader",
+                include: [resolve('../src')]
+            },
+            
             {
                 test: /\.vue$/,
                 use: {
@@ -48,5 +50,11 @@ module.exports = {
                 }]
             }
         ]
+    },
+    resolve: {
+        extensions: ['.js', '.vue'],
+        alias: {
+            'vue': 'vue/dist/vue.esm.js'
+        }
     }
 }
