@@ -1,5 +1,8 @@
 <template>
-    <li class="el-menu-item is-active" style="">{{msg}}</li>
+    <li class="el-menu-item is-active">
+        <router-link to="/Login">{{msg}}</router-link>
+    </li>
+    
 </template>
 
 <script>
@@ -8,7 +11,7 @@
         name: 'db-sidebar',
         data() {
             return {
-                msg: 'Dashboard'
+                msg: 'login'
             }
         }
     }
