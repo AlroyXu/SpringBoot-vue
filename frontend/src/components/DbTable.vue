@@ -116,6 +116,7 @@
             },
             changePage: function (currentPage) {
                 this.currentPage = currentPage;
+                console.log("当前页面是："+this.currentPage)
                 this.getCustomers()
             },
             editItem: function (index, rows) {

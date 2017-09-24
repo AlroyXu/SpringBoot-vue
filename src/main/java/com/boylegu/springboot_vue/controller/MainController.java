@@ -1,7 +1,9 @@
 package com.boylegu.springboot_vue.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.boylegu.springboot_vue.entities.Persons;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -143,6 +145,16 @@ public class MainController {
 
         Persons user = personsRepository.findById(id);
 
+
+        //当前ID
+//        int curCount=personsRepository.findCount();
+//        int curId=curCount+1;
+//        Persons persons=new Persons();
+//        persons.setId(curId);
+
+
+
+
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -167,11 +179,40 @@ public class MainController {
          *  @apiSuccess {String} zone
 
         */
+        System.out.println("进入put函数");
         Persons user = personsRepository.findById(id);
 
         user.setPhone(data.getPhone());
 
         user.setZone(data.getZone());
+
+
+        Persons newUser=new Persons();
+       // personsRepository.delete(15L);
+
+        newUser.setZone("tianjin");
+        newUser.setPhone("123456");
+        newUser.setEmail("1223@qq.com");
+        newUser.setUsername("i am 16 id");
+        newUser.setSex("female");
+        newUser.setCreate_datetime("2017-06-29 11:02:56");
+        personsRepository.save(newUser);
+        System.out.println("当前数据库记录总数是"+personsRepository.count());
+
+        Persons selectUser=personsRepository.findById(3L);
+        System.out.println(selectUser.getId());
+        System.out.println(selectUser.getPhone());
+        System.out.println(selectUser.getZone());
+        System.out.println(selectUser.getEmail());
+        System.out.println(selectUser.getSex());
+        System.out.println(selectUser.getUsername());
+
+
+
+        Sort sort = new Sort(Direction.ASC, "id");
+        Pageable pageable = new PageRequest(3, 7, sort);
+        Page<Persons> temp = personsRepository.findAll(pageable);
+        System.out.println("111111");
 
         return personsRepository.save(user);
     }

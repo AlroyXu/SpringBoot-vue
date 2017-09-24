@@ -106,6 +106,7 @@ class AllType extends BasePaginationInfo implements Types {
 
     public Page<Persons> query() {
 
+        this.instance.flush();
         return this.instance.findAll(
 
                 this.pageable

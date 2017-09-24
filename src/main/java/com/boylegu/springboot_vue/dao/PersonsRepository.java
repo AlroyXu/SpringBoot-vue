@@ -1,24 +1,28 @@
 package com.boylegu.springboot_vue.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import com.boylegu.springboot_vue.entities.Persons;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Repository;
-
-import com.boylegu.springboot_vue.entities.Persons;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Map;
 
 
 public interface PersonsRepository extends JpaRepository<Persons, Long> {
 
-    public static final String FIND_SEX = "select DISTINCT sex from Persons p";
+    //查找当前数据库中记录总数
+    public static final String FIND_COUNT = "select count(*) from Persons p";
+    @Query(FIND_COUNT)
+    int findCount();
 
+
+
+
+    public static final String FIND_SEX = "select DISTINCT sex from Persons p";
     @Query(FIND_SEX)
     List<Persons> findSex();
+
 
     Page<Persons> findAll(Pageable pageable);
 

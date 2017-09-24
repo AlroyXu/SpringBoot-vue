@@ -10,14 +10,14 @@
             </el-col>
         </el-row>
 
-        <el-row>
+        <!-- <el-row>
             <el-col :span="24">
                 <footer class="footer">
                     <db-footer></db-footer>
                 </footer>
 
             </el-col>
-        </el-row>
+        </el-row> -->
     </div>
 </template>
 
